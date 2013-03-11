@@ -1,0 +1,28 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.    -->
+    <style name="AppBaseTheme" parent="@android:style/Theme">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="SampleText" parent="@android:style/Widget.TextView">
+        <item name="android:text">@string/pangram</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+    
+    <style name="SampleFontText" parent="@style/SampleText">
+        <item name="com.pixplicity.mdevcon2013:typeface">Lobster.ttf</item>
+    </style>
+    
+</resources>

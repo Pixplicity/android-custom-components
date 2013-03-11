@@ -1,0 +1,32 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.pixplicity.mdevcon2013"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <com.pixplicity.mdevcon2013.widgets.BrokenViewGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <com.pixplicity.mdevcon2013.widgets.BadSmellView1
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginBottom="8dp" />
+
+        <com.pixplicity.mdevcon2013.widgets.BadSmellView2
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_marginBottom="8dp" />
+
+        <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedView
+            android:layout_width="200px"
+            android:layout_height="200px" />
+    </com.pixplicity.mdevcon2013.widgets.BrokenViewGroup>
+
+</ScrollView>
