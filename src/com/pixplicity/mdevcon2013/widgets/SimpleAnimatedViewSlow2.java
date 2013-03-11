@@ -8,11 +8,13 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class BadSmellView1 extends View {
+public class SimpleAnimatedViewSlow2 extends View {
 
 	private static final long FPS_DELAY = 1000 / 60;
 	private float mAngle;
 	private final float mSize = 200;
+	private final RectF mRect = new RectF(0, 0, mSize, mSize);
+	private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
 	private final Runnable animator = new Runnable() {
 
@@ -26,8 +28,10 @@ public class BadSmellView1 extends View {
 		}
 	};
 
-	public BadSmellView1(Context context, AttributeSet attrs) {
+	public SimpleAnimatedViewSlow2(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		mPaint.setStyle(Paint.Style.FILL);
+		mPaint.setColor(Color.RED);
 	}
 
 	@Override
@@ -44,10 +48,7 @@ public class BadSmellView1 extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(Color.RED);
-		canvas.drawArc(new RectF(0, 0, mSize, mSize), 0, mAngle, true, paint);
+		canvas.drawArc(mRect, 0, mAngle, true, mPaint);
 	}
 
 }
