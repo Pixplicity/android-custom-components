@@ -161,7 +161,7 @@ public class MainActivity extends FragmentActivity implements
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_code_smells,
+			View rootView = inflater.inflate(R.layout.fr_animation,
 					container,
 					false);
 			return rootView;

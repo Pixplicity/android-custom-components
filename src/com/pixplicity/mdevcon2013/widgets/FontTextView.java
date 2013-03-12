@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 import com.pixplicity.mdevcon2013.R;
-import com.pixplicity.mdevcon2013.util.Fonts;
+import com.pixplicity.mdevcon2013.util.FontUtil;
 
 public class FontTextView extends TextView {
 
@@ -40,7 +40,7 @@ public class FontTextView extends TextView {
 	}
 
 	public void setTypeface(String typeface) {
-		Fonts.setTypeface(this, typeface);
+		FontUtil.setTypeface(this, typeface);
 	}
 
 }

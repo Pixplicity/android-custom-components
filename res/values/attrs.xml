@@ -15,7 +15,6 @@
 
     <declare-styleable name="FontTextView">
         <attr name="textStyle" />
-        <attr name="test2" format="string" />
         <attr name="typeface" />
     </declare-styleable>
 

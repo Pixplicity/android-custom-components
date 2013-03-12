@@ -7,7 +7,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
-public class Fonts {
+public class FontUtil {
 
 	private static final Map<String, Typeface> FONTS = new HashMap<String, Typeface>();
 
