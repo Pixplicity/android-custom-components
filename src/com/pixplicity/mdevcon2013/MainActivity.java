@@ -41,6 +41,7 @@ public class MainActivity extends FragmentActivity implements
 								getString(R.string.title_section2),
 								getString(R.string.title_section3),
 								getString(R.string.title_section4),
+								getString(R.string.title_section5),
 						}),
 				this);
 	}
@@ -85,6 +86,9 @@ public class MainActivity extends FragmentActivity implements
 			fragment = new Fonts2Fragment();
 			break;
 		case 3:
+			fragment = new SimpleAnimatedViewFragment();
+			break;
+		case 4:
 			fragment = new CodeSmellsFragment();
 			break;
 		}
@@ -153,6 +157,24 @@ public class MainActivity extends FragmentActivity implements
 	/**
 	 * A fragment showcasing some custom components.
 	 */
+	public static class SimpleAnimatedViewFragment extends Fragment {
+
+		public SimpleAnimatedViewFragment() {
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fr_animation,
+					container,
+					false);
+			return rootView;
+		}
+	}
+
+	/**
+	 * A fragment showcasing some custom components.
+	 */
 	public static class CodeSmellsFragment extends Fragment {
 
 		public CodeSmellsFragment() {
@@ -161,7 +183,7 @@ public class MainActivity extends FragmentActivity implements
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_animation,
+			View rootView = inflater.inflate(R.layout.fr_code_smells,
 					container,
 					false);
 			return rootView;

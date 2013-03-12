@@ -8,7 +8,8 @@
     <string name="title_section1">Standard components</string>
     <string name="title_section2">Custom fonts</string>
     <string name="title_section3">Custom fonts (styled)</string>
-    <string name="title_section4">Code smells</string>
+    <string name="title_section4">Simple animation</string>
+    <string name="title_section5">Code smells</string>
     <string name="ellipsis">…</string>
     <string name="pangram">A very bad quack might jinx zippy fowls.</string>
 
