@@ -12,28 +12,37 @@ import android.view.View;
 
 public class SimpleAnimatedView extends View {
 
-	private static final long FPS_DELAY = 1000 / 60;
-	private float mAngle;
+	protected static final long FPS_DELAY = 1000 / 60;
+
+	private float mStartAngle, mSweepAngle;
 	private float mRadius = 200;
 	private final RectF mRect = new RectF(0, 0, mRadius, mRadius);
 	private final Paint mPaintFg = new Paint(Paint.ANTI_ALIAS_FLAG);
 	private final Paint mPaintLn = new Paint(Paint.ANTI_ALIAS_FLAG);
 	private final Paint mPaintBg = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-	private final Runnable animator = new Runnable() {
+	protected final Runnable animator = new Runnable() {
 
 		@Override
 		public void run() {
-			if (mAngle <= 360) {
-				mAngle += 1f;
-				nextFrame();
-				invalidate();
+			if (mSweepAngle <= 360) {
+				mSweepAngle += 1f;
+			} else if (mStartAngle <= 360) {
+				mStartAngle += 1f;
+			} else {
+				reset();
 			}
+			nextFrame();
+			invalidate();
 		}
 	};
 
 	public SimpleAnimatedView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		createPaints();
+	}
+
+	protected void createPaints() {
 		mPaintBg.setStyle(Paint.Style.FILL);
 		mPaintBg.setColor(Color.argb(128, 233, 233, 233));
 		mPaintLn.setStyle(Paint.Style.STROKE);
@@ -46,8 +55,18 @@ public class SimpleAnimatedView extends View {
 	@Override
 	protected void onAttachedToWindow() {
 		super.onAttachedToWindow();
-		mAngle = 0;
+		reset();
 		nextFrame();
+	}
+
+	protected void reset() {
+		mStartAngle = mSweepAngle = 0;
+	}
+
+	@Override
+	protected void onDetachedFromWindow() {
+		super.onDetachedFromWindow();
+		removeCallbacks(animator);
 	}
 
 	@Override
@@ -67,7 +86,7 @@ public class SimpleAnimatedView extends View {
 	}
 
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	private void nextFrame() {
+	protected void nextFrame() {
 		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
 			postDelayed(animator, FPS_DELAY);
 		} else {
@@ -102,7 +121,12 @@ public class SimpleAnimatedView extends View {
 				mRect.top + mRadius,
 				mRadius,
 				mPaintLn);
-		canvas.drawArc(mRect, 0, mAngle, true, mPaintFg);
+		canvas.drawArc(
+				mRect,
+				mStartAngle,
+				mSweepAngle - mStartAngle,
+				true,
+				mPaintFg);
 	}
 
 }
