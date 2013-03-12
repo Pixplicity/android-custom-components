@@ -1,5 +1,4 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/com.pixplicity.mdevcon2013"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,18 +14,18 @@
         android:paddingTop="@dimen/activity_vertical_margin" >
 
         <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedViewSlow1
-            android:layout_width="200px"
-            android:layout_height="200px"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp" />
 
         <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedViewSlow2
-            android:layout_width="200px"
-            android:layout_height="200px"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp" />
 
         <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedView
-            android:layout_width="200px"
-            android:layout_height="200px" />
+            android:layout_width="120dp"
+            android:layout_height="wrap_content" />
     </com.pixplicity.mdevcon2013.widgets.BrokenViewGroup>
 
 </ScrollView>
