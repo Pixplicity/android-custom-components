@@ -71,15 +71,15 @@ public class SimpleAnimatedView extends View {
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		// Try for a width based on our minimum
-		int minW = getSuggestedMinimumWidth()
-				+ getPaddingLeft() + getPaddingRight();
+		// Try for a width based on our minimum including horizontal padding
+		int paddingX = getPaddingLeft() + getPaddingRight();
+		int minW = getSuggestedMinimumWidth() + paddingX;
 		int w = resolveSizeAndState(minW, widthMeasureSpec, 1);
 
 		// Whatever the width ends up being, ask for a height that would let the
-		// view get as big as it can
-		int minH = MeasureSpec.getSize(w)
-				+ getPaddingBottom() + getPaddingTop();
+		// view get as big as it can, again compensating for padding
+		int paddingY = getPaddingBottom() + getPaddingTop();
+		int minH = MeasureSpec.getSize(w) - paddingX + paddingY;
 		int h = resolveSizeAndState(minH, heightMeasureSpec, 0);
 
 		setMeasuredDimension(w, h);
