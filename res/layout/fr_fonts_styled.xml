@@ -18,13 +18,32 @@
             style="@style/SampleFontText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal" />
+            android:text="@string/lipsum1"
+            android:textStyle="bold" />
 
         <com.pixplicity.mdevcon2013.widgets.FontTextView
             style="@style/SampleFontText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold" />
+            android:text="@string/lipsum2" />
+
+        <com.pixplicity.mdevcon2013.widgets.FontTextView
+            style="@style/SampleFontText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lipsum3" />
+
+        <com.pixplicity.mdevcon2013.widgets.FontTextView
+            style="@style/SampleFontText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lipsum4" />
+
+        <com.pixplicity.mdevcon2013.widgets.FontTextView
+            style="@style/SampleFontText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lipsum5" />
     </LinearLayout>
 
 </ScrollView>
