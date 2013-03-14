@@ -44,6 +44,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lipsum5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <com.pixplicity.mdevcon2013.widgets.FontEditText
+                style="@style/SampleFontText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:inputType="text"
+                android:lines="1"
+                android:scrollHorizontally="true" />
+
+            <com.pixplicity.mdevcon2013.widgets.FontButton
+                style="@style/SampleFontText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/send" />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
