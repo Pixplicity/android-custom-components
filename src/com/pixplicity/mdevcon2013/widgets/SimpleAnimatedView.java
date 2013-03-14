@@ -74,7 +74,7 @@ public class SimpleAnimatedView extends View {
 		// Try for a width based on our minimum including horizontal padding
 		int paddingX = getPaddingLeft() + getPaddingRight();
 		int minW = getSuggestedMinimumWidth() + paddingX;
-		int w = resolveSizeAndState(minW, widthMeasureSpec, 1);
+		int w = resolveSizeAndState(minW, widthMeasureSpec, 0);
 
 		// Whatever the width ends up being, ask for a height that would let the
 		// view get as big as it can, again compensating for padding
