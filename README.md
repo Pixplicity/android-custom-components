@@ -7,5 +7,3 @@ The associated code from Paul Lammertsma's talk.
 >
 > In this talk I'll explain how some of Android's widgets and layouts are put together and how you can expand on them. I'll demonstrate creating a custom font widget, an animated view, and how everything neatly fits together in layouts, themes, and yes, even inside Eclipse's graphical layout.
 
-You can find the slides here:  
-http://www.slideshow.com/users/pflammertsma/mdevcon-2013---custom-components-easier-than-547170101
