@@ -1,4 +1,4 @@
-mdevcon 2013: *Custom Components, Easier than you think!*
+Mobile Down South 2013: *Custom Components, Easier than you think!*
 ===========
 
 The associated code from Paul Lammertsma's talk.
