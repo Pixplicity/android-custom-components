@@ -1,4 +1,4 @@
-package com.pixplicity.mdevcon2013.util;
+package com.pixplicity.mds2013.util;
 
 import java.util.HashMap;
 import java.util.Map;

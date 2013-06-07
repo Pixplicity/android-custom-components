@@ -14,72 +14,72 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="Abel-Regular.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="Dosis-Medium.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="DancingScript-Bold.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="RobotoCondensed-Bold.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="ShadowsIntoLight.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="Lobster.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="ChangaOne-Regular.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="ComingSoon.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="JosefinSans-Regular.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:typeface="UbuntuCondensed-Regular.ttf" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -23,7 +23,7 @@
     </style>
     
     <style name="SampleFontText" parent="@style/SampleText">
-        <item name="com.pixplicity.mdevcon2013:typeface">Abel-Regular.ttf</item>
+        <item name="com.pixplicity.mds2013:typeface">Abel-Regular.ttf</item>
     </style>
     
 </resources>

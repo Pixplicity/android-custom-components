@@ -13,32 +13,32 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleFontText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lipsum1"
             android:textStyle="bold" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleFontText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lipsum2" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleFontText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lipsum3" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleFontText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lipsum4" />
 
-        <com.pixplicity.mdevcon2013.widgets.FontTextView
+        <com.pixplicity.mds2013.widgets.FontTextView
             style="@style/SampleFontText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <com.pixplicity.mdevcon2013.widgets.FontEditText
+            <com.pixplicity.mds2013.widgets.FontEditText
                 style="@style/SampleFontText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                 android:lines="1"
                 android:scrollHorizontally="true" />
 
-            <com.pixplicity.mdevcon2013.widgets.FontButton
+            <com.pixplicity.mds2013.widgets.FontButton
                 style="@style/SampleFontText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

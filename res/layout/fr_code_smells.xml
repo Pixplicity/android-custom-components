@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <com.pixplicity.mdevcon2013.widgets.BrokenViewGroup
+    <com.pixplicity.mds2013.widgets.BrokenViewGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -13,19 +13,19 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
-        <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedViewSlow1
+        <com.pixplicity.mds2013.widgets.SimpleAnimatedViewSlow1
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp" />
 
-        <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedViewSlow2
+        <com.pixplicity.mds2013.widgets.SimpleAnimatedViewSlow2
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp" />
 
-        <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedView
+        <com.pixplicity.mds2013.widgets.SimpleAnimatedView
             android:layout_width="120dp"
             android:layout_height="wrap_content" />
-    </com.pixplicity.mdevcon2013.widgets.BrokenViewGroup>
+    </com.pixplicity.mds2013.widgets.BrokenViewGroup>
 
 </ScrollView>
