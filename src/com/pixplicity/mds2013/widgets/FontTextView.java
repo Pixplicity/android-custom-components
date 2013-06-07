@@ -34,9 +34,7 @@ public class FontTextView extends TextView {
 					a.getString(R.styleable.FontTextView_typeface);
 			a.recycle();
 
-			if (typeface != null) {
-				FontUtil.setTypeface(view, typeface);
-			}
+			FontUtil.setTypeface(view, typeface);
 		}
 	}
 

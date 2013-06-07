@@ -24,7 +24,9 @@ public class FontUtil {
 	}
 
 	public static void setTypeface(TextView view, String typeface) {
-		view.setTypeface(getTypeface(view.getContext(), typeface));
+		if (typeface != null) {
+			view.setTypeface(getTypeface(view.getContext(), typeface));
+		}
 	}
 
 	public static void setTypefaceBad(TextView view, String typefaceName) {
