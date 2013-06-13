@@ -1,6 +1,6 @@
-package com.pixplicity.mds2013;
+package com.pixplicity.add2013;
 
-import com.pixplicity.mds2013.R;
+import com.pixplicity.add2013.R;
 
 import android.app.ActionBar;
 import android.os.Bundle;

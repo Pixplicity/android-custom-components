@@ -1,4 +1,4 @@
-package com.pixplicity.mds2013.util;
+package com.pixplicity.add2013.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class FontUtil {
 	}
 
 	public static void setTypeface(TextView view, String typeface) {
-		if (typeface != null) {
+		if (typeface != null && !view.isInEditMode()) {
 			view.setTypeface(getTypeface(view.getContext(), typeface));
 		}
 	}

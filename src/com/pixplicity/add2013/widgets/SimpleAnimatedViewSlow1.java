@@ -1,4 +1,4 @@
-package com.pixplicity.mds2013.widgets;
+package com.pixplicity.add2013.widgets;
 
 import android.content.Context;
 import android.graphics.Canvas;

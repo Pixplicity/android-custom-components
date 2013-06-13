@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <com.pixplicity.mds2013.widgets.SimpleAnimatedView
+    <com.pixplicity.add2013.widgets.SimpleAnimatedView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp" />
