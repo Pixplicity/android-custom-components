@@ -109,14 +109,13 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class StandardFragment extends Fragment {
 
-		public StandardFragment() {
-		}
+		public StandardFragment() {}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_standard,
-					container, false);
+			View rootView = inflater.inflate(R.layout.fr_standard, container, 
+					false);
 			return rootView;
 		}
 	}
@@ -126,8 +125,7 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class Fonts1Fragment extends Fragment {
 
-		public Fonts1Fragment() {
-		}
+		public Fonts1Fragment() {}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -143,14 +141,12 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class Fonts2Fragment extends Fragment {
 
-		public Fonts2Fragment() {
-		}
+		public Fonts2Fragment() {}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_fonts_styled,
-					container,
+			View rootView = inflater.inflate(R.layout.fr_fonts_styled, container,
 					false);
 			return rootView;
 		}
@@ -161,14 +157,12 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class SimpleAnimatedViewFragment extends Fragment {
 
-		public SimpleAnimatedViewFragment() {
-		}
+		public SimpleAnimatedViewFragment() {}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_animation,
-					container,
+			View rootView = inflater.inflate(R.layout.fr_animation, container,
 					false);
 			return rootView;
 		}
@@ -185,8 +179,7 @@ public class MainActivity extends FragmentActivity implements
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_code_smells,
-					container,
+			View rootView = inflater.inflate(R.layout.fr_code_smells, container,
 					false);
 			return rootView;
 		}
