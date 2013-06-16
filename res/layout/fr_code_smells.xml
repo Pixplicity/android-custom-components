@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <com.pixplicity.add2013.widgets.BrokenViewGroup
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -13,19 +13,36 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
+        <Spinner
+            android:id="@+id/sp_switch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_fps"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp" />
+
         <com.pixplicity.add2013.widgets.SimpleAnimatedViewSlow1
+            android:id="@+id/sav1"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp" />
 
         <com.pixplicity.add2013.widgets.SimpleAnimatedViewSlow2
+            android:id="@+id/sav2"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
 
         <com.pixplicity.add2013.widgets.SimpleAnimatedView
+            android:id="@+id/sav3"
             android:layout_width="120dp"
-            android:layout_height="wrap_content" />
-    </com.pixplicity.add2013.widgets.BrokenViewGroup>
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </LinearLayout>
 
 </ScrollView>

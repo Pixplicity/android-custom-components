@@ -1,5 +1,8 @@
 package com.pixplicity.add2013.widgets;
 
+import java.util.Iterator;
+import java.util.Stack;
+
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,18 +11,25 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 public class SimpleAnimatedView extends View {
+	
+	public static interface FpsListener {
+		
+		public abstract void onFpsChange(float fps);
+		
+	}
 
 	protected static final long FPS_DELAY = 1000 / 60;
 
-	private float mStartAngle, mSweepAngle;
-	private float mRadius = 200;
-	private final RectF mRect = new RectF(0, 0, mRadius, mRadius);
-	private final Paint mPaintFg = new Paint(Paint.ANTI_ALIAS_FLAG);
-	private final Paint mPaintLn = new Paint(Paint.ANTI_ALIAS_FLAG);
-	private final Paint mPaintBg = new Paint(Paint.ANTI_ALIAS_FLAG);
+	protected float mRadius = 200;
+	protected float mStartAngle, mSweepAngle;
+	protected RectF mRect = new RectF(0, 0, mRadius, mRadius);
+	protected Paint mPaintFg = new Paint(Paint.ANTI_ALIAS_FLAG);
+	protected Paint mPaintLn = new Paint(Paint.ANTI_ALIAS_FLAG);
+	protected Paint mPaintBg = new Paint(Paint.ANTI_ALIAS_FLAG);
 
 	protected final Runnable animator = new Runnable() {
 
@@ -30,16 +40,21 @@ public class SimpleAnimatedView extends View {
 			} else if (mStartAngle <= 360) {
 				mStartAngle += 1f;
 			} else {
-				reset();
+				resetAnimation();
 			}
 			nextFrame();
 			invalidate();
 		}
 	};
 
+	private long lastTime;
+	private Stack<Float> fpsList = new Stack<Float>();
+	private FpsListener fpsListener;
+
 	public SimpleAnimatedView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		createPaints();
+		resetAnimation();
 	}
 
 	protected void createPaints() {
@@ -55,18 +70,26 @@ public class SimpleAnimatedView extends View {
 	@Override
 	protected void onAttachedToWindow() {
 		super.onAttachedToWindow();
-		reset();
-		nextFrame();
-	}
-
-	protected void reset() {
-		mStartAngle = mSweepAngle = 0;
+		startAnimation();
 	}
 
 	@Override
 	protected void onDetachedFromWindow() {
 		super.onDetachedFromWindow();
-		removeCallbacks(animator);
+		stopAnimation();
+	}
+
+	@Override
+	public void setVisibility(int visibility) {
+		super.setVisibility(visibility);
+		switch (visibility) {
+		case View.VISIBLE:
+			startAnimation();
+			break;
+		default:
+			stopAnimation();
+			break;
+		}
 	}
 
 	@Override
@@ -100,9 +123,8 @@ public class SimpleAnimatedView extends View {
 		// Account for padding
 		mRect.left = getPaddingLeft();
 		mRect.top = getPaddingTop();
-		float diameter = Math.min(
-				w - mRect.left - getPaddingRight(),
-				h - mRect.top - getPaddingBottom());
+		float diameter = Math.min(w - mRect.left - getPaddingRight(), h
+				- mRect.top - getPaddingBottom());
 		mRect.right = mRect.left + diameter;
 		mRect.bottom = mRect.top + diameter;
 		mRadius = diameter / 2;
@@ -111,22 +133,47 @@ public class SimpleAnimatedView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		canvas.drawCircle(
-				mRect.left + mRadius,
-				mRect.top + mRadius,
-				mRadius,
+		canvas.drawCircle(mRect.left + mRadius, mRect.top + mRadius, mRadius,
 				mPaintBg);
-		canvas.drawCircle(
-				mRect.left + mRadius,
-				mRect.top + mRadius,
-				mRadius,
+		canvas.drawCircle(mRect.left + mRadius, mRect.top + mRadius, mRadius,
 				mPaintLn);
-		canvas.drawArc(
-				mRect,
-				mStartAngle,
-				mSweepAngle - mStartAngle,
-				true,
+		canvas.drawArc(mRect, mStartAngle, mSweepAngle - mStartAngle, true,
 				mPaintFg);
+		if (fpsListener != null) {
+			long duration = System.currentTimeMillis() - lastTime;
+			lastTime = System.currentTimeMillis();
+			float fps = 1000f / duration;
+			while (fpsList.size() >= 10) {
+				fpsList.pop();
+			}
+			Log.d("SimpleAnim", "size: " + fpsList.size());
+			fpsList.push(fps);
+			Iterator<Float> iter = fpsList.iterator();
+			fps = 0;
+			while (iter.hasNext()) {
+				fps += iter.next();
+			}
+			fps /= fpsList.size();
+			fpsListener.onFpsChange(fps);
+		}
+	}
+
+	protected void resetAnimation() {
+		mStartAngle = mSweepAngle = 0;
+	}
+
+	private void startAnimation() {
+		if (isShown()) {
+			nextFrame();
+		}
+	}
+
+	private void stopAnimation() {
+		removeCallbacks(animator);
+	}
+	
+	public void setFpsListener(FpsListener listener) {
+		fpsListener = listener;
 	}
 
 }

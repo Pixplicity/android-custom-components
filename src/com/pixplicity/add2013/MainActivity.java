@@ -1,16 +1,28 @@
 package com.pixplicity.add2013;
 
+import java.text.NumberFormat;
+
 import com.pixplicity.add2013.R;
+import com.pixplicity.add2013.widgets.SimpleAnimatedView;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.SimpleAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.OnNavigationListener {
@@ -33,19 +45,15 @@ public class MainActivity extends FragmentActivity implements
 
 		// Set up the dropdown list navigation in the action bar.
 		actionBar.setListNavigationCallbacks(
-				// Specify a SpinnerAdapter to populate the dropdown list.
-				new ArrayAdapter<String>(
-						actionBar.getThemedContext(),
+		// Specify a SpinnerAdapter to populate the dropdown list.
+				new ArrayAdapter<String>(actionBar.getThemedContext(),
 						android.R.layout.simple_list_item_1,
-						android.R.id.text1,
-						new String[] {
+						android.R.id.text1, new String[] {
 								getString(R.string.title_section1),
 								getString(R.string.title_section2),
 								getString(R.string.title_section3),
 								getString(R.string.title_section4),
-								getString(R.string.title_section5),
-						}),
-				this);
+								getString(R.string.title_section5), }), this);
 	}
 
 	@Override
@@ -60,8 +68,8 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		// Serialize the current dropdown position.
-		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM,
-				getActionBar().getSelectedNavigationIndex());
+		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
+				.getSelectedNavigationIndex());
 	}
 
 	@Override
@@ -99,8 +107,7 @@ public class MainActivity extends FragmentActivity implements
 		}
 		fragment.setArguments(args);
 		getSupportFragmentManager().beginTransaction()
-				.replace(R.id.container, fragment)
-				.commit();
+				.replace(R.id.container, fragment).commit();
 		return true;
 	}
 
@@ -109,12 +116,13 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class StandardFragment extends Fragment {
 
-		public StandardFragment() {}
+		public StandardFragment() {
+		}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_standard, container, 
+			View rootView = inflater.inflate(R.layout.fr_standard, container,
 					false);
 			return rootView;
 		}
@@ -125,7 +133,8 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class Fonts1Fragment extends Fragment {
 
-		public Fonts1Fragment() {}
+		public Fonts1Fragment() {
+		}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -141,13 +150,14 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class Fonts2Fragment extends Fragment {
 
-		public Fonts2Fragment() {}
+		public Fonts2Fragment() {
+		}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_fonts_styled, container,
-					false);
+			View rootView = inflater.inflate(R.layout.fr_fonts_styled,
+					container, false);
 			return rootView;
 		}
 	}
@@ -157,7 +167,8 @@ public class MainActivity extends FragmentActivity implements
 	 */
 	public static class SimpleAnimatedViewFragment extends Fragment {
 
-		public SimpleAnimatedViewFragment() {}
+		public SimpleAnimatedViewFragment() {
+		}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -171,18 +182,98 @@ public class MainActivity extends FragmentActivity implements
 	/**
 	 * A fragment showcasing some custom components.
 	 */
-	public static class CodeSmellsFragment extends Fragment {
+	public static class CodeSmellsFragment extends Fragment implements SimpleAnimatedView.FpsListener {
 
-		public CodeSmellsFragment() {
-		}
+		private SimpleAnimatedView mAnim1;
+		private SimpleAnimatedView mAnim2;
+		private SimpleAnimatedView mAnim3;
+		private Button mBtn;
+		
+		private int curIndex;
+		private TextView mFpsText;
+		private float mFps;
+		
+		private Handler mHandler = new Handler();
+		private Runnable mFpsRunnable = new Runnable() {
+			public void run() {
+				NumberFormat nf = NumberFormat.getInstance();
+				nf.setMaximumFractionDigits(1);
+				mFpsText.setText(nf.format(mFps) + " fps");
+				mHandler.postDelayed(this, 200);
+			}
+		};
+		private Spinner mAnimSpinner;
+
+		public CodeSmellsFragment() {}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fr_code_smells, container,
-					false);
+			View rootView = inflater.inflate(R.layout.fr_code_smells,
+					container, false);
+			mAnimSpinner = (Spinner) rootView.findViewById(R.id.sp_switch);
+			String[] animList = new String[]{"Normal", "Code smell 1", "Code smell 2"};
+			mAnimSpinner.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, animList));
+			mAnimSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View view,
+						int position, long id) {
+					nextSmell(position);
+				}
+
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
+			});
+			mFpsText = (TextView) rootView.findViewById(R.id.tv_fps);
+			mAnim1 = (SimpleAnimatedView) rootView.findViewById(R.id.sav1);
+			mAnim1.setFpsListener(this);
+			mAnim2 = (SimpleAnimatedView) rootView.findViewById(R.id.sav2);
+			mAnim2.setFpsListener(this);
+			mAnim3 = (SimpleAnimatedView) rootView.findViewById(R.id.sav3);
+			mAnim3.setFpsListener(this);
+			nextSmell(0);
 			return rootView;
 		}
+
+		private void nextSmell(int index) {
+			mAnim1.setVisibility(View.GONE);
+			mAnim2.setVisibility(View.GONE);
+			mAnim3.setVisibility(View.GONE);
+			View anim;
+			switch (index) {
+			case 1:
+				anim = mAnim1;
+				break;
+			case 2:
+				anim = mAnim2;
+				break;
+			case 3:
+			default:
+				anim = mAnim3;
+				break;
+			}
+			anim.setVisibility(View.VISIBLE);
+		}
+
+		@Override
+		public void onFpsChange(float fps) {
+			mFps = fps;
+		}
+		
+		@Override
+		public void onAttach(Activity activity) {
+			super.onAttach(activity);
+			mHandler.post(mFpsRunnable);
+		}
+		
+		@Override
+		public void onDetach() {
+			super.onDetach();
+			mHandler.removeCallbacks(mFpsRunnable);
+		}
+		
 	}
 
 }
