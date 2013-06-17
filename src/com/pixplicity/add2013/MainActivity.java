@@ -1,19 +1,17 @@
 package com.pixplicity.add2013;
 
-
-import com.pixplicity.add2013.R;
-import com.pixplicity.add2013.fragments.CodeSmellsFragment;
-import com.pixplicity.add2013.fragments.Fonts1Fragment;
-import com.pixplicity.add2013.fragments.Fonts2Fragment;
-import com.pixplicity.add2013.fragments.SimpleAnimatedViewFragment;
-import com.pixplicity.add2013.fragments.StandardFragment;
-
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
+
+import com.pixplicity.add2013.fragments.CodeSmellsFragment;
+import com.pixplicity.add2013.fragments.Fonts1Fragment;
+import com.pixplicity.add2013.fragments.Fonts2Fragment;
+import com.pixplicity.add2013.fragments.SimpleAnimatedViewFragment;
+import com.pixplicity.add2013.fragments.StandardFragment;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.OnNavigationListener {

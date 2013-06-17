@@ -11,21 +11,20 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 public class SimpleAnimatedView extends View {
-	
+
 	public static interface FpsListener {
-		
+
 		public abstract void onFpsChange(float fps);
-		
+
 	}
 
 	protected static final long FPS_DELAY = 1000 / 60;
 
 	protected float mRadius = 200;
-	protected float mStartAngle, mSweepAngle;
+	protected float mAngleStart, mAngleEnd;
 	protected RectF mRect = new RectF(0, 0, mRadius, mRadius);
 	protected Paint mPaintFg = new Paint(Paint.ANTI_ALIAS_FLAG);
 	protected Paint mPaintLn = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -35,10 +34,10 @@ public class SimpleAnimatedView extends View {
 
 		@Override
 		public void run() {
-			if (mSweepAngle <= 360) {
-				mSweepAngle += 1f;
-			} else if (mStartAngle <= 360) {
-				mStartAngle += 1f;
+			if (mAngleEnd <= 360) {
+				mAngleEnd += 1f;
+			} else if (mAngleStart <= 360) {
+				mAngleStart += 1f;
 			} else {
 				resetAnimation();
 			}
@@ -94,16 +93,18 @@ public class SimpleAnimatedView extends View {
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		// Try for a width based on our minimum including horizontal padding
+		// Determine horizontal and vertical padding
 		int paddingX = getPaddingLeft() + getPaddingRight();
-		int minW = getSuggestedMinimumWidth() + paddingX;
-		int w = resolveSizeAndState(minW, widthMeasureSpec, 0);
-
-		// Whatever the width ends up being, ask for a height that would let the
-		// view get as big as it can, again compensating for padding
 		int paddingY = getPaddingBottom() + getPaddingTop();
+
+		// Try for a width based on our minimum including horizontal padding
+		int minW = getSuggestedMinimumWidth() + paddingX;
+		int w = resolveSize(minW, widthMeasureSpec);
+
+		// Set the height according to the width as our control should be
+		// square, again compensating for padding
 		int minH = MeasureSpec.getSize(w) - paddingX + paddingY;
-		int h = resolveSizeAndState(minH, heightMeasureSpec, 0);
+		int h = resolveSize(minH, heightMeasureSpec);
 
 		setMeasuredDimension(w, h);
 	}
@@ -123,8 +124,9 @@ public class SimpleAnimatedView extends View {
 		// Account for padding
 		mRect.left = getPaddingLeft();
 		mRect.top = getPaddingTop();
-		float diameter = Math.min(w - mRect.left - getPaddingRight(), h
-				- mRect.top - getPaddingBottom());
+		float diameter = Math.min(
+				w - mRect.left - getPaddingRight(),
+				h - mRect.top - getPaddingBottom());
 		mRect.right = mRect.left + diameter;
 		mRect.bottom = mRect.top + diameter;
 		mRadius = diameter / 2;
@@ -133,20 +135,26 @@ public class SimpleAnimatedView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		canvas.drawCircle(mRect.left + mRadius, mRect.top + mRadius, mRadius,
+		canvas.drawCircle(mRect.left + mRadius,
+				mRect.top + mRadius,
+				mRadius,
 				mPaintBg);
-		canvas.drawCircle(mRect.left + mRadius, mRect.top + mRadius, mRadius,
+		canvas.drawCircle(mRect.left + mRadius,
+				mRect.top + mRadius,
+				mRadius,
 				mPaintLn);
-		canvas.drawArc(mRect, mStartAngle, mSweepAngle - mStartAngle, true,
+		canvas.drawArc(mRect,
+				mAngleStart,
+				mAngleEnd - mAngleStart,
+				true,
 				mPaintFg);
 		if (fpsListener != null) {
 			long duration = System.currentTimeMillis() - lastTime;
 			lastTime = System.currentTimeMillis();
 			float fps = 1000f / duration;
-			while (fpsList.size() >= 10) {
+			while (fpsList.size() > 10) {
 				fpsList.pop();
 			}
-			Log.d("SimpleAnim", "size: " + fpsList.size());
 			fpsList.push(fps);
 			Iterator<Float> iter = fpsList.iterator();
 			fps = 0;
@@ -159,7 +167,7 @@ public class SimpleAnimatedView extends View {
 	}
 
 	protected void resetAnimation() {
-		mStartAngle = mSweepAngle = 0;
+		mAngleStart = mAngleEnd = 0;
 	}
 
 	private void startAnimation() {
@@ -171,7 +179,7 @@ public class SimpleAnimatedView extends View {
 	private void stopAnimation() {
 		removeCallbacks(animator);
 	}
-	
+
 	public void setFpsListener(FpsListener listener) {
 		fpsListener = listener;
 	}
