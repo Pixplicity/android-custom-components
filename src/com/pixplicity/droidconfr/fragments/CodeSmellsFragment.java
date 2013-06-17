@@ -1,4 +1,4 @@
-package com.pixplicity.add2013.fragments;
+package com.pixplicity.droidconfr.fragments;
 
 import java.text.NumberFormat;
 
@@ -15,8 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.pixplicity.add2013.R;
-import com.pixplicity.add2013.widgets.SimpleAnimatedView;
+import com.pixplicity.droidconfr.R;
+import com.pixplicity.droidconfr.widgets.SimpleAnimatedView;
 
 /**
  * A fragment showcasing some custom components.

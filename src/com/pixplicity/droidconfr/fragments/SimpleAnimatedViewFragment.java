@@ -1,4 +1,4 @@
-package com.pixplicity.add2013.fragments;
+package com.pixplicity.droidconfr.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,19 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pixplicity.add2013.R;
+import com.pixplicity.droidconfr.R;
 
 /**
- * A fragment showcasing some standard components.
+ * A fragment showcasing some custom components.
  */
-public class StandardFragment extends Fragment {
+public class SimpleAnimatedViewFragment extends Fragment {
 
-	public StandardFragment() {}
+	public SimpleAnimatedViewFragment() {}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fr_standard, container,
+		View rootView = inflater.inflate(R.layout.fr_animation, container,
 				false);
 		return rootView;
 	}

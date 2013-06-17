@@ -1,4 +1,4 @@
-package com.pixplicity.add2013.widgets;
+package com.pixplicity.droidconfr.widgets;
 
 import java.util.Iterator;
 import java.util.Stack;

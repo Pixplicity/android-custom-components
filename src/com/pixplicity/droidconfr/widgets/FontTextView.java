@@ -1,12 +1,12 @@
-package com.pixplicity.add2013.widgets;
+package com.pixplicity.droidconfr.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.pixplicity.add2013.R;
-import com.pixplicity.add2013.util.FontUtil;
+import com.pixplicity.droidconfr.R;
+import com.pixplicity.droidconfr.util.FontUtil;
 
 public class FontTextView extends TextView {
 

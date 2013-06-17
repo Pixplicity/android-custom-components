@@ -1,4 +1,4 @@
-package com.pixplicity.add2013.util;
+package com.pixplicity.droidconfr.util;
 
 import java.util.HashMap;
 import java.util.Map;

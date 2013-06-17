@@ -1,10 +1,10 @@
-package com.pixplicity.add2013.widgets;
+package com.pixplicity.droidconfr.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 
-import com.pixplicity.add2013.util.FontUtil;
+import com.pixplicity.droidconfr.util.FontUtil;
 
 public class FontButton extends Button {
 
