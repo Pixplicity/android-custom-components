@@ -97,14 +97,29 @@ public class SimpleAnimatedView extends View {
 		int paddingX = getPaddingLeft() + getPaddingRight();
 		int paddingY = getPaddingBottom() + getPaddingTop();
 
-		// Try for a width based on our minimum including horizontal padding
-		int minW = getSuggestedMinimumWidth() + paddingX;
-		int w = resolveSize(minW, widthMeasureSpec);
+		int minW, minH, w, h;
+		switch (MeasureSpec.getMode(heightMeasureSpec)) {
+		case MeasureSpec.EXACTLY:
+			// Try for a height based on our minimum including vertical padding
+			minH = getSuggestedMinimumHeight() + paddingY;
+			h = MeasureSpec.getSize(heightMeasureSpec);
 
-		// Set the height according to the width as our control should be
-		// square, again compensating for padding
-		int minH = MeasureSpec.getSize(w) - paddingX + paddingY;
-		int h = resolveSize(minH, heightMeasureSpec);
+			// Set the width according to the height as our control should be
+			// square, again compensating for padding
+			minW = MeasureSpec.getSize(h) - paddingY + paddingX;
+			w = resolveSize(minW, widthMeasureSpec);
+			break;
+		default:
+			// Try for a width based on our minimum including horizontal padding
+			minW = getSuggestedMinimumWidth() + paddingX;
+			w = resolveSize(minW, widthMeasureSpec);
+
+			// Set the height according to the width as our control should be
+			// square, again compensating for padding
+			minH = MeasureSpec.getSize(w) - paddingX + paddingY;
+			h = resolveSize(minH, heightMeasureSpec);
+			break;
+		}
 
 		setMeasuredDimension(w, h);
 	}
