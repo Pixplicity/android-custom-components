@@ -114,7 +114,7 @@ public class SimpleAnimatedView extends View {
 		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
 			postDelayed(animator, FPS_DELAY);
 		} else {
-			postOnAnimationDelayed(animator, FPS_DELAY);
+			postOnAnimation(animator);
 		}
 	}
 
