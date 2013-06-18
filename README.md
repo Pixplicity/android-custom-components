@@ -1,4 +1,4 @@
-Mobile Down South 2013: *Custom Components, Easier than you think!*
+Droidcon Paris 2013: *Making It Fit: How Android Measures and Draws Views*
 ===========
 
 The associated code from Paul Lammertsma's talk.
