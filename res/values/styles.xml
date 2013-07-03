@@ -18,7 +18,7 @@
 
     <style name="SampleText" parent="@android:style/Widget.TextView">
         <item name="android:text">@string/pangram</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">@dimen/font_size</item>
         <item name="android:layout_marginBottom">12dp</item>
     </style>
     
