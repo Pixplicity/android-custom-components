@@ -1,4 +1,4 @@
-package com.pixplicity.droidconfr.fragments;
+package com.pixplicity.mobdevcon.fragments;
 
 import java.text.NumberFormat;
 
@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.pixplicity.droidconfr.R;
-import com.pixplicity.droidconfr.widgets.SimpleAnimatedView;
+import com.pixplicity.mobdevcon.widgets.SimpleAnimatedView;
 
 /**
  * A fragment showcasing some custom components.

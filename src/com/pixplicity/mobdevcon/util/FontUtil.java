@@ -1,4 +1,4 @@
-package com.pixplicity.droidconfr.util;
+package com.pixplicity.mobdevcon.util;
 
 import java.util.HashMap;
 import java.util.Map;

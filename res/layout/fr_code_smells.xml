@@ -26,20 +26,20 @@
         android:layout_height="0dp"
         android:layout_weight="1" >
 
-        <com.pixplicity.droidconfr.widgets.SimpleAnimatedViewSlow1
+        <com.pixplicity.mobdevcon.widgets.SimpleAnimatedViewSlow1
             android:id="@+id/sav1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp" />
 
-        <com.pixplicity.droidconfr.widgets.SimpleAnimatedViewSlow2
+        <com.pixplicity.mobdevcon.widgets.SimpleAnimatedViewSlow2
             android:id="@+id/sav2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="8dp"
             android:visibility="gone" />
 
-        <com.pixplicity.droidconfr.widgets.SimpleAnimatedView
+        <com.pixplicity.mobdevcon.widgets.SimpleAnimatedView
             android:id="@+id/sav3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

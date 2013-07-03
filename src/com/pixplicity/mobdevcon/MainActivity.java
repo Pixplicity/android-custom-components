@@ -1,4 +1,4 @@
-package com.pixplicity.droidconfr;
+package com.pixplicity.mobdevcon;
 
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -7,11 +7,12 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 
-import com.pixplicity.droidconfr.fragments.CodeSmellsFragment;
-import com.pixplicity.droidconfr.fragments.Fonts1Fragment;
-import com.pixplicity.droidconfr.fragments.Fonts2Fragment;
-import com.pixplicity.droidconfr.fragments.SimpleAnimatedViewFragment;
-import com.pixplicity.droidconfr.fragments.StandardFragment;
+import com.pixplicity.droidconfr.R;
+import com.pixplicity.mobdevcon.fragments.CodeSmellsFragment;
+import com.pixplicity.mobdevcon.fragments.Fonts1Fragment;
+import com.pixplicity.mobdevcon.fragments.Fonts2Fragment;
+import com.pixplicity.mobdevcon.fragments.SimpleAnimatedViewFragment;
+import com.pixplicity.mobdevcon.fragments.StandardFragment;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.OnNavigationListener {
