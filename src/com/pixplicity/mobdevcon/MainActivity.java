@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 
 import com.pixplicity.droidconfr.R;
 import com.pixplicity.mobdevcon.fragments.CodeSmellsFragment;
+import com.pixplicity.mobdevcon.fragments.DrawingFragment;
 import com.pixplicity.mobdevcon.fragments.Fonts1Fragment;
 import com.pixplicity.mobdevcon.fragments.Fonts2Fragment;
 import com.pixplicity.mobdevcon.fragments.SimpleAnimatedViewFragment;
@@ -43,7 +44,8 @@ public class MainActivity extends FragmentActivity implements
 								getString(R.string.title_section2),
 								getString(R.string.title_section3),
 								getString(R.string.title_section4),
-								getString(R.string.title_section5), }), this);
+								getString(R.string.title_section5),
+								getString(R.string.title_section6), }), this);
 	}
 
 	@Override
@@ -90,6 +92,9 @@ public class MainActivity extends FragmentActivity implements
 			break;
 		case 4:
 			fragment = new CodeSmellsFragment();
+			break;
+		case 5:
+			fragment = new DrawingFragment();
 			break;
 		}
 		if (fragment == null) {
