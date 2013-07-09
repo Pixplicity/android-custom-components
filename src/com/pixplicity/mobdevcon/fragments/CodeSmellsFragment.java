@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.pixplicity.droidconfr.R;
+import com.pixplicity.mobdevcon.R;
 import com.pixplicity.mobdevcon.widgets.SimpleAnimatedView;
 
 /**
@@ -30,8 +30,9 @@ public class CodeSmellsFragment extends Fragment implements SimpleAnimatedView.F
 	private TextView mFpsText;
 	private float mFps;
 	
-	private Handler mHandler = new Handler();
-	private Runnable mFpsRunnable = new Runnable() {
+	private final Handler mHandler = new Handler();
+	private final Runnable mFpsRunnable = new Runnable() {
+		@Override
 		public void run() {
 			NumberFormat nf = NumberFormat.getInstance();
 			nf.setMaximumFractionDigits(1);

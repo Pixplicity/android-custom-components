@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 
-import com.pixplicity.droidconfr.R;
 import com.pixplicity.mobdevcon.fragments.CodeSmellsFragment;
 import com.pixplicity.mobdevcon.fragments.DrawingFragment;
 import com.pixplicity.mobdevcon.fragments.Fonts1Fragment;

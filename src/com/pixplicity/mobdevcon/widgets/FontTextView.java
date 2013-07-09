@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.pixplicity.droidconfr.R;
+import com.pixplicity.mobdevcon.R;
 import com.pixplicity.mobdevcon.util.FontUtil;
 
 public class FontTextView extends TextView {
