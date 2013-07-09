@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class FontUtil {
 
 	public static void setTypeface(TextView view, String typeface) {
 		if (typeface != null && !view.isInEditMode()) {
-			view.setTypeface(getTypeface(view.getContext(), typeface));
+			setTypeface(view, getTypeface(view.getContext(), typeface));
 		}
 	}
 
@@ -33,6 +34,11 @@ public class FontUtil {
 		Typeface typeface = Typeface.createFromAsset(
 				view.getContext().getAssets(),
 				"fonts/" + typefaceName);
+		setTypeface(view, typeface);
+	}
+
+	private static void setTypeface(TextView view, Typeface typeface) {
+		view.setPaintFlags(view.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 		view.setTypeface(typeface);
 	}
 
