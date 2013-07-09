@@ -1,31 +1,49 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <com.pixplicity.mdevcon2013.widgets.BrokenViewGroup
-        android:layout_width="match_parent"
+    <Spinner
+        android:id="@+id/sp_switch"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin" >
+        android:layout_marginBottom="8dp" />
 
-        <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedViewSlow1
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/tv_fps"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <com.pixplicity.mobdevcon.widgets.SimpleAnimatedViewSlow1
+            android:id="@+id/sav1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginBottom="8dp" />
 
-        <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedViewSlow2
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
+        <com.pixplicity.mobdevcon.widgets.SimpleAnimatedViewSlow2
+            android:id="@+id/sav2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
 
-        <com.pixplicity.mdevcon2013.widgets.SimpleAnimatedView
-            android:layout_width="120dp"
-            android:layout_height="wrap_content" />
-    </com.pixplicity.mdevcon2013.widgets.BrokenViewGroup>
+        <com.pixplicity.mobdevcon.widgets.SimpleAnimatedView
+            android:id="@+id/sav3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+    </FrameLayout>
 
-</ScrollView>
+</LinearLayout>
