@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
@@ -24,6 +25,7 @@ public class FontUtil {
 	}
 
 	public static void setTypeface(TextView view, String typeface) {
+		view.setPaintFlags(view.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 		view.setTypeface(getTypeface(view.getContext(), typeface));
 	}
 
