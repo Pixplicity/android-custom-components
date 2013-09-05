@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,6 +32,7 @@ public class DrawingView extends View {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		Rect dirty = null;
 		float x = event.getX();
 		float y = event.getY();
 		switch (event.getAction()) {
@@ -38,40 +40,53 @@ public class DrawingView extends View {
 			path.moveTo(x, y);
 			break;
 		case MotionEvent.ACTION_MOVE:
-			if (QUAD_LINES) {
-				path.quadTo(x, y, (lastX + x) / 2, (lastY + y) / 2);
-			} else {
-				path.lineTo(x, y);
+			dirty = new Rect(
+					(int) Math.floor(lastX), (int) Math.floor(lastY),
+					(int) Math.floor(lastX), (int) Math.floor(lastY));
+			// Android batches touch events; see
+			// http://corner.squareup.com/2010/07/smooth-signatures.html
+			int historySize = event.getHistorySize();
+			for (int i = 0; i < historySize; i++) {
+				float historicalX = event.getHistoricalX(i);
+				float historicalY = event.getHistoricalY(i);
+				lineTo(historicalX, historicalY, dirty);
 			}
+			lineTo(x, y, dirty);
 			break;
 		case MotionEvent.ACTION_UP:
 			// Nothing to do
 			break;
 		}
-		if (INVALIDATE_REGION) {
+		if (INVALIDATE_REGION && dirty != null) {
 			int pad = (int) (STROKE_WIDTH / 2);
-			int l, t, r, b;
-			if (lastX < x) {
-				l = (int) Math.floor(lastX);
-				r = (int) Math.ceil(x);
-			} else {
-				l = (int) Math.floor(x);
-				r = (int) Math.ceil(lastX);
-			}
-			if (lastY < y) {
-				t = (int) Math.floor(lastY);
-				b = (int) Math.ceil(y);
-			} else {
-				t = (int) Math.floor(y);
-				b = (int) Math.ceil(lastY);
-			}
-			invalidate(l - pad, t - pad, r + pad, b + pad);
+			invalidate(dirty.left - pad, dirty.top - pad, dirty.right + pad, dirty.bottom + pad);
 		} else {
 			invalidate();
 		}
 		lastX = x;
 		lastY = y;
 		return true;
+	}
+
+	private void lineTo(float x, float y, Rect dirty) {
+		if (INVALIDATE_REGION) {
+			int pad = (int) (STROKE_WIDTH / 2);
+			if (x < dirty.left) {
+				dirty.left = (int) Math.floor(x);
+			} else {
+				dirty.right = (int) Math.ceil(x);
+			}
+			if (y < dirty.top) {
+				dirty.top = (int) Math.floor(y);
+			} else {
+				dirty.bottom = (int) Math.ceil(y);
+			}
+		}
+		if (QUAD_LINES) {
+			path.quadTo(x, y, (lastX + x) / 2, (lastY + y) / 2);
+		} else {
+			path.lineTo(x, y);
+		}
 	}
 
 	@Override
