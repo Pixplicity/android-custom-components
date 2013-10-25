@@ -1,4 +1,4 @@
-package com.pixplicity.mobdevcon.widgets;
+package com.pixplicity.devfest.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;

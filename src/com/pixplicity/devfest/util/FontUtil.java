@@ -1,4 +1,4 @@
-package com.pixplicity.mobdevcon.util;
+package com.pixplicity.devfest.util;
 
 import java.util.HashMap;
 import java.util.Map;

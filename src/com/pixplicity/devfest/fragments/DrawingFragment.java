@@ -1,4 +1,4 @@
-package com.pixplicity.mobdevcon.fragments;
+package com.pixplicity.devfest.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,18 +8,15 @@ import android.view.ViewGroup;
 
 import com.pixplicity.mobdevcon.R;
 
-/**
- * A fragment showcasing some custom components.
- */
-public class Fonts1Fragment extends Fragment {
 
-	public Fonts1Fragment() {}
+public class DrawingFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fr_fonts, container,
+		View rootView = inflater.inflate(R.layout.fr_draw, container,
 				false);
 		return rootView;
 	}
+
 }

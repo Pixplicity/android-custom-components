@@ -1,4 +1,4 @@
-package com.pixplicity.mobdevcon.fragments;
+package com.pixplicity.devfest.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

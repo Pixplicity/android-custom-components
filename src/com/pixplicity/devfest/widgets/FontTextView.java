@@ -1,12 +1,12 @@
-package com.pixplicity.mobdevcon.widgets;
+package com.pixplicity.devfest.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.pixplicity.devfest.util.FontUtil;
 import com.pixplicity.mobdevcon.R;
-import com.pixplicity.mobdevcon.util.FontUtil;
 
 public class FontTextView extends TextView {
 

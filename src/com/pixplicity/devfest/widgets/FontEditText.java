@@ -1,24 +1,24 @@
-package com.pixplicity.mobdevcon.widgets;
+package com.pixplicity.devfest.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.Button;
+import android.widget.EditText;
 
-import com.pixplicity.mobdevcon.util.FontUtil;
+import com.pixplicity.devfest.util.FontUtil;
 
-public class FontButton extends Button {
+public class FontEditText extends EditText {
 
-	public FontButton(Context context) {
+	public FontEditText(Context context) {
 		super(context);
 		FontTextView.init(this, context, null, 0);
 	}
 
-	public FontButton(Context context, AttributeSet attrs) {
+	public FontEditText(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		FontTextView.init(this, context, attrs, 0);
 	}
 
-	public FontButton(Context context, AttributeSet attrs, int defStyle) {
+	public FontEditText(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		FontTextView.init(this, context, attrs, defStyle);
 	}

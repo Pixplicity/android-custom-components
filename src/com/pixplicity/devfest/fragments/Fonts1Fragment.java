@@ -1,4 +1,4 @@
-package com.pixplicity.mobdevcon.fragments;
+package com.pixplicity.devfest.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,14 +11,14 @@ import com.pixplicity.mobdevcon.R;
 /**
  * A fragment showcasing some custom components.
  */
-public class SimpleAnimatedViewFragment extends Fragment {
+public class Fonts1Fragment extends Fragment {
 
-	public SimpleAnimatedViewFragment() {}
+	public Fonts1Fragment() {}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fr_animation, container,
+		View rootView = inflater.inflate(R.layout.fr_fonts, container,
 				false);
 		return rootView;
 	}
