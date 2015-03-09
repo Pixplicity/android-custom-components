@@ -1,7 +1,9 @@
-DevFest 2013: *Custom Components for Android*
+Custom Components for Android
 ===========
 
-The associated code from Paul Lammertsma's talk.
+This application demos some custom components for Android.
+
+It's best understood in conjuction with Paul Lammertsma's talk, *Custom Components*.
 
 > Android offers a powerful model for building user interfaces, based on fundamental layout components View and ViewGroup. The platform includes a prebuilt set that you can use to construct your UI, but making your own may be easier than you think and it will make your code around complex UIs cleaner and much easier to understand.
 >
